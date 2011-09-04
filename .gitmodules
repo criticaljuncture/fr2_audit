@@ -1,0 +1,3 @@
+[submodule "vendor/submodules/scss-bootstrap"]
+	path = vendor/submodules/scss-bootstrap
+	url = git://github.com/criticaljuncture/scss-bootstrap.git

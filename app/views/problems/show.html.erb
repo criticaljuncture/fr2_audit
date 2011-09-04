@@ -1,0 +1,25 @@
+<h1><%= link_to "#{audit_type_name @audit.type} (#{ @audit.started_at.to_date })", audit_path(@audit) %></h1>
+
+<div class="pagination">
+  <ul>
+    <li class="prev <%= 'disabled' if @number == 1 %>">
+      <%= link_to '&larr; Previous'.html_safe, @number == 1 ? '#' : audit_problem_path(@audit, @number - 1) %>
+    </li>
+    <li class="disabled"><a href="#">Problem <%= @number %> of <%= @audit.audit_problems.count %></a></li>
+    <li class="next <%= 'disabled' if @number == @audit.audit_problems.count %>">
+      <%= link_to 'Next &rarr;'.html_safe, @number == @audit.audit_problems.count ? '#' : audit_problem_path(@audit, @number + 1) %>
+    </li>
+  </ul>
+</div>
+
+<dl>
+<% (@problem.fields.keys - ["_id", "_type"]).each do |field| %>
+  <dt><%= audit_field_name(field) %></dt>
+  <dd>
+    <% if partial_exists?(field) %>
+      <%= render :partial => field, :locals => {:problem => @problem} %>
+    <% else %>
+      <%= @problem.send(field) %>
+    <% end %>
+  </dd>
+<% end %>

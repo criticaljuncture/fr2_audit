@@ -1,0 +1,29 @@
+<h1><%= audit_type_name @audit.type %> (<%= @audit.started_at.to_date %>)</h1>
+
+<p><%= audit_type_description @audit.type %></p>
+
+<p>Duration: <%= distance_of_time_in_words @audit.completed_at, @audit.started_at, true %></p>
+
+<%= image_tag year_distribution_chart(@audit.audit_problems) %>
+
+<p><%= pluralize(@audit.audit_problems.count, 'problem') %></p>
+
+<table class="zebra-striped sortable`">
+  <% columns = @audit.audit_problems.first.fields.keys - ["_id", "_type"] %>
+  <thead>
+    <tr>
+      <% columns.each do |column| %>
+        <th><%= audit_field_name(column) %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @audit.audit_problems.each_with_index do |problem, problem_index| %>
+      <tr>
+        <% columns.each_with_index do |column, column_index| %>
+          <td><%= link_to_if column_index == 0, problem.send(column), audit_problem_path(@audit, problem_index+1) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

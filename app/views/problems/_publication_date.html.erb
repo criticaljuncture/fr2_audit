@@ -1,0 +1,6 @@
+<%= problem.publication_date %>
+(<%= link_to 'MODS', issue_mods_url(problem) %>,
+ <% if problem.publication_date > Date.parse('2000-01-01') %>
+   <%= link_to 'Bulkdata', issue_bulkdata_url(problem) %>,
+ <% end %>
+ <%= link_to 'PDF', issue_pdf_url(problem) %>)

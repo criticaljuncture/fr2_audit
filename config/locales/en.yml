@@ -1,0 +1,20 @@
+en:
+  audit_problems:
+    fields:
+      publication_date: Publication Date
+      available_on_fdsys: Available on FDSys?
+      entry_id: Internal Document ID
+      num_pages: Number of Pages
+    types:
+      MissingModsFile:
+        name: Missing MODS File
+        description: Dates for which we're missing MODS metadata files; we check all dates since 1994, skipping weekends and known holidays.
+      MissingTitle:
+        name: Missing Title
+        description: Documents that have a blank or missing title.
+      MissingPageRange:
+        name: Missing Page Ranges
+        description: Spans of at least 10 pages where we have no FR documents. Details shown are for the first document <em>after</em> the missing page range.
+      AgencyElementTooLarge:
+        name: <AGY> element too large
+        description: Occurances where the AGY element in the bulkdata exceeds 500 characters. Most likely means a failure to close the element in the upstream SGML.
