@@ -13,7 +13,7 @@
 </div>
 
 <dl>
-<% (@problem.fields.keys - ["_id", "_type"]).each do |field| %>
+<% (@problem.attributes.keys - ["_id", "_type"]).each do |field| %>
   <dt><%= audit_field_name(field) %></dt>
   <dd>
     <% if partial_exists?(field) %>
