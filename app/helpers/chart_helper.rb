@@ -21,6 +21,7 @@ module ChartHelper
     current_year = Date.current.year
 
     year_counts = year_distribution(problems,starting_year..current_year)
+    max = year_counts.max
     Gchart.bar(
       :data => year_counts,
       :size => '600x200',
@@ -28,7 +29,7 @@ module ChartHelper
       :axis_with_labels => 'x,y',
       :axis_labels => [
         (starting_year .. current_year).map{|i| i.to_s.sub(/^\d\d/,"'")},
-        [0,year_counts.max]
+        [0, max / 4, max / 2, (max / 4) * 3, max]
       ]
      )
   end
