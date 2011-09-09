@@ -5,10 +5,20 @@ en:
       available_on_fdsys: Available on FDSys?
       entry_id: Internal Document ID
       num_pages: Number of Pages
+      agency_names: "Agency Name(s)"
     types:
       MissingModsFile:
         name: Missing MODS File
         description: Dates for which we're missing MODS metadata files; we check all dates since 1994, skipping weekends and known holidays.
+      MissingAgency:
+        name: Missing Agency (but Agency Name is present)
+        description: Documents that have no agency associated, even though they have an agency name
+      MissingAgencyName:
+        name: Missing Agency Names
+        description: Documents that have no agency information whatsoever.
+      MissingGranuleClass:
+        name: Missing Granule Class (Document type)
+        description: Documents that don't have a type specified.
       MissingTitle:
         name: Missing Title
         description: Documents that have a blank or missing title.
