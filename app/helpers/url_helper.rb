@@ -18,4 +18,8 @@ module UrlHelper
   def document_pdf_url(obj)
     "http://www.gpo.gov/fdsys/pkg/FR-#{obj.publication_date.to_s(:db)}/pdf/#{obj.document_number}.pdf"
   end
+
+  def fr2_url(obj)
+    "http://federalregister.gov/a/#{obj.document_number}"
+  end
 end
