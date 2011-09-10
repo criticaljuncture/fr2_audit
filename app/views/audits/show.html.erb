@@ -4,7 +4,7 @@
 
 <p>Duration: <%= distance_of_time_in_words @audit.completed_at, @audit.started_at, true %></p>
 
-<%= image_tag year_distribution_chart(@audit.audit_problems) %>
+<%= image_tag year_distribution_chart(@audit) %>
 
 <p><%= pluralize(@audit.audit_problems.count, 'problem') %></p>
 

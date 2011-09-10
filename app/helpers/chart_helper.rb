@@ -1,9 +1,9 @@
 module ChartHelper
-  def year_distribution_sparkline(problems, options = {})
+  def year_distribution_sparkline(audit, options = {})
     starting_year = 1994
     current_year = Date.current.year
 
-    year_counts = year_distribution(problems,starting_year..current_year)
+    year_counts = year_distribution(audit,starting_year..current_year)
     Gchart.line(
       :data => year_counts,
       :size => '300x50',
@@ -16,11 +16,11 @@ module ChartHelper
      )
   end
 
-  def year_distribution_chart(problems, options = {})
+  def year_distribution_chart(audit, options = {})
     starting_year = 1994
     current_year = Date.current.year
 
-    year_counts = year_distribution(problems,starting_year..current_year)
+    year_counts = year_distribution(audit,starting_year..current_year)
     max = year_counts.max
     Gchart.bar(
       :data => year_counts,
@@ -36,8 +36,7 @@ module ChartHelper
 
   private
 
-  def year_distribution(problems, range)
-    year_counts = problems.map(&:publication_date).reduce(Hash.new(0)){|hsh, date|hsh[date.year] += 1; hsh}.values_at(*range.to_a)
-
+  def year_distribution(audit, range)
+    audit.problem_counts_by_year.values_at(*range.to_a.map(&:to_s))
   end
 end

@@ -1,6 +1,6 @@
 class AuditsController < ApplicationController
   def index
-    @audits = Audit.all
+    @audits = Audit.without(:audit_problems).all
   end
 
   def show
