@@ -14,7 +14,7 @@
       <tr>
         <td><%= audit_type_name(audit.type) %></td>
         <td><%= link_to audit.completed_at.to_date, audit_path(audit) %></td>
-        <td><%= audit.audit_problems.count %></td>
+        <td><%= audit.problem_counts_by_year.values.sum %></td>
         <td><%= image_tag year_distribution_sparkline(audit) %></td> 
       </tr>
     <% end %>
