@@ -9,7 +9,7 @@
 <p><%= pluralize(@audit.audit_problems.count, 'problem') %> (<%= link_to 'Download CSV', audit_path(@audit, :format => :csv) %>)</p>
 
 <table class="zebra-striped sortable">
-  <% columns = @audit.audit_problems.last.attributes.keys - ["_id", "_type"] %>
+  <% columns = @audit.audit_problems.last.attributes.keys - ["_id", "_type", "entry_id"] %>
   <thead>
     <tr>
       <% columns.each do |column| %>
