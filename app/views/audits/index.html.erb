@@ -1,21 +1,26 @@
 <h1>All Audits</h1>
 
-<table class="sortable">
+<table class="zebra-striped sortable">
   <thead>
     <tr>
-      <th>Audit Type</th>
       <th>Date</th>
-      <th>Num Problems</th>
-      <th>Distribution</th>
+      <% @audit_types.each do |audit_type| %>
+        <th><%= audit_type_short_name(audit_type) %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
-    <% @audits.each do |audit| %>
+    <% @audits_by_date.each do |date, audits| %>
       <tr>
-        <td><%= audit_type_name(audit.type) %></td>
-        <td><%= link_to audit.completed_at.to_date, audit_path(audit) %></td>
-        <td><%= audit.problem_counts_by_year.values.sum %></td>
-        <td><%= image_tag year_distribution_sparkline(audit) %></td> 
+        <td><%= link_to date, by_date_audits_path(date.year, date.month, date.day) %></td>
+        <% @audit_types.each do |audit_type| %>
+          <td>
+            <% audit = audits.find{|a| a.type == "AuditProblem::#{audit_type}"} %>
+            <% if audit %>
+              <%= link_to audit.problem_count, audit_path(audit) %>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

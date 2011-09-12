@@ -3,6 +3,10 @@ module AuditHelper
     t("audit_problems.types.#{class_name.sub(/^AuditProblem::/,'')}.name")
   end
 
+  def audit_type_short_name(class_name)
+    t("audit_problems.types.#{class_name.sub(/^AuditProblem::/,'')}.short_name")
+  end
+
   def audit_type_description(class_name)
     t("audit_problems.types.#{class_name.sub(/^AuditProblem::/,'')}.description").html_safe
   end

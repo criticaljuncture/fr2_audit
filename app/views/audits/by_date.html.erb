@@ -1,0 +1,20 @@
+<h1>Audits performed on <%= @date %></h1>
+
+<table class="sortable">
+  <thead>
+    <tr>
+      <th>Audit Type</th>
+      <th>Num Problems</th>
+      <th>Distribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @audits.each do |audit| %>
+      <tr>
+        <td><%= link_to audit_type_name(audit.type), audit_path(audit) %></td>
+        <td><%= audit.problem_counts_by_year.values.sum %></td>
+        <td><%= image_tag year_distribution_sparkline(audit) %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>

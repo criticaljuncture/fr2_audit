@@ -8,24 +8,35 @@ en:
       num_pages: Number of Pages
       agency_names: "Agency Name(s)"
     types:
+      InvalidDocumentNumber:
+        name: Invalid Document Number
+        short_name: Invalid Document Number
+        description: "Documents that have either a blank document number or a document number that starts with 'X'"
       MissingIssue:
         name: Missing Issue
+        short_name: Missing Issue
         description: Dates for which we have no documents, but aren't on our holiday list. Includes details about the presence on FDSys of bulkdata and mods file.
       MissingAgency:
         name: Missing Agency (but Agency Name is present)
+        short_name: Missing Agency
         description: Documents that have no agency associated, even though they have an agency name
       MissingAgencyName:
         name: Missing Agency Names
+        short_name: Missing Agency Names
         description: Documents that have no agency information whatsoever.
       MissingGranuleClass:
         name: Missing Granule Class (Document type)
+        short_name: Missing Granule Class
         description: Documents that don't have a type specified.
       MissingTitle:
         name: Missing Title
+        short_name: Missing Title
         description: Documents that have a blank or missing title.
       MissingPageRange:
         name: Missing Page Ranges
+        short_name: Missing Page Ranges
         description: Spans of at least 10 pages where we have no FR documents. Details shown are for the first document <em>after</em> the missing page range.
       AgencyElementTooLarge:
         name: <AGY> element too large
+        short_name: <AGY> element too large
         description: Occurances where the AGY element in the bulkdata exceeds 500 characters. Most likely means a failure to close the element in the upstream SGML.

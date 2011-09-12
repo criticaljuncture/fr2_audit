@@ -2,11 +2,11 @@ Fr2Audit::Application.routes.draw do
   root :to => "audits#index"
 
   resources :audits, :only => [:index, :show] do
-    get 'by-date/:year/:month/:day',
+    resources :problems, :only => [:show]
+    get ':year/:month/:day',
         :on => :collection,
         :action => :by_date,
         :as => :by_date
-    resources :problems, :only => [:show]
   end
 
   # The priority is based upon order of creation:
