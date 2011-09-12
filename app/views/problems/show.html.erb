@@ -5,9 +5,9 @@
     <li class="prev <%= 'disabled' if @number == 1 %>">
       <%= link_to '&larr; Previous'.html_safe, @number == 1 ? '#' : audit_problem_path(@audit, @number - 1) %>
     </li>
-    <li class="disabled"><a href="#">Problem <%= @number %> of <%= @audit.audit_problems.count %></a></li>
-    <li class="next <%= 'disabled' if @number == @audit.audit_problems.count %>">
-      <%= link_to 'Next &rarr;'.html_safe, @number == @audit.audit_problems.count ? '#' : audit_problem_path(@audit, @number + 1) %>
+    <li class="disabled"><a href="#">Problem <%= @number %> of <%= @audit.problem_count %></a></li>
+    <li class="next <%= 'disabled' if @number == @audit.problem_count %>">
+      <%= link_to 'Next &rarr;'.html_safe, @number == @audit.problem_count ? '#' : audit_problem_path(@audit, @number + 1) %>
     </li>
   </ul>
 </div>

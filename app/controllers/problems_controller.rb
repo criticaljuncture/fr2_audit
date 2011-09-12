@@ -1,7 +1,11 @@
 class ProblemsController < ApplicationController
   def show
-    @audit = Audit.find(params[:audit_id])
     @number = params[:id].to_i
-    @problem = @audit.audit_problems[@number - 1]
+    @audit = Audit.all(:fields => {
+                :audit_problems => {"$slice" => [@number - 1, 1]},
+                :type => true,
+                :problem_count => true,
+                :started_at => true}).find(params[:audit_id])
+    @problem = @audit.audit_problems.first
   end
 end
