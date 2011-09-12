@@ -2,10 +2,10 @@ Fr2Audit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Custom directories with classes and modules you want to be autoloadable.
-  config.autoload_paths += %W(#{config.root}/../fr2_audit_logic/lib)
+  # config.autoload_paths += %W(#{config.root}/../fr2_audit_logic/lib)
 
   # Explicitly mark certain classes as reloadable
-  ActiveSupport::Dependencies.explicitly_unloadable_constants << 'Audit' << 'AuditProblem'
+  # ActiveSupport::Dependencies.explicitly_unloadable_constants << 'Audit' << 'AuditProblem'
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
