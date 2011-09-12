@@ -2,14 +2,15 @@ en:
   audit_problems:
     fields:
       publication_date: Publication Date
-      available_on_fdsys: Available on FDSys?
+      bulkdata_available: Bulkdata Available?
+      mods_available: MODS file Available?
       entry_id: Internal Document ID
       num_pages: Number of Pages
       agency_names: "Agency Name(s)"
     types:
-      MissingModsFile:
-        name: Missing MODS File
-        description: Dates for which we're missing MODS metadata files; we check all dates since 1994, skipping weekends and known holidays.
+      MissingIssue:
+        name: Missing Issue
+        description: Dates for which we have no documents, but aren't on our holiday list. Includes details about the presence on FDSys of bulkdata and mods file.
       MissingAgency:
         name: Missing Agency (but Agency Name is present)
         description: Documents that have no agency associated, even though they have an agency name
