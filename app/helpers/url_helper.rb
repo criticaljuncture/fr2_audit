@@ -1,5 +1,9 @@
 module UrlHelper
   def issue_mods_url(obj)
+    "http://www.gpo.gov/fdsys/pkg/FR-#{obj.publication_date.to_s(:iso)}/mods.xml"
+  end
+  
+  def issue_xml_url(obj)
     "http://www.gpo.gov/fdsys/pkg/FR-#{obj.publication_date.to_s(:iso)}/xml/FR-#{obj.publication_date.to_s(:iso)}.xml"
   end
 
