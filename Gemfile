@@ -13,6 +13,7 @@ gem 'fr2_audit_logic',
 # gem 'fr2_audit_logic', :path => '../fr2_audit_logic'
 gem 'json'
 gem 'googlecharts', '1.6.7'
+gem 'fastercsv'
 
 # Gems used only for assets and not required
 # in production environments by default.

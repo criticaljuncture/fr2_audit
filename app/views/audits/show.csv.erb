@@ -1,0 +1,9 @@
+<%= 
+    content = FasterCSV.generate do |csv|
+      columns = @audit.audit_problems.last.attributes.keys - ["_id", "_type"] 
+      csv << columns.map{|c| audit_field_name(c) } 
+      @audit.audit_problems.each do |problem|
+        csv << columns.map{|c| problem.send(c) }
+      end
+    end
+    content.html_safe %>
