@@ -140,7 +140,7 @@ namespace :fr2_audit do
   
   desc "Symlink mongoid.yml"
   task :symlink_mongoid_yml, :roles => [:app, :worker] do
-    run "ln -s /var/www/apps/fr2/current/config/mongoid.yml #{current_path}/config/mongoid.yml"
+    run "ln -sf /var/www/apps/fr2/current/config/mongoid.yml #{current_path}/config/mongoid.yml"
     find_and_execute_task("passenger:restart")
   end
 end
