@@ -133,6 +133,11 @@ namespace :fr2_audit do
     run "/usr/local/s3sync/s3cmd.rb get config.internal.federalregister.gov:fr2_audit_secrets.yml #{shared_path}/config/secrets.yml"
     find_and_execute_task("apache:restart")
   end
+  
+  desc "Symlink mongoid.yml"
+  task :symlink_mongoid_yml, :roles => [:app, :worker] do
+    run "ln -s /var/www/apps/fr2/shared/config/mongoid.yml #{current_path}/config/mongoid.yml"
+  end
 end
 
 
