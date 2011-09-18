@@ -16,6 +16,10 @@ en:
         name: Missing Issue
         short_name: Missing Issue
         description: Dates for which we have no documents, but aren't on our holiday list. Includes details about the presence on FDSys of bulkdata and mods file.
+      MissingBulkdataFile:
+        name: Missing Bulkdata file
+        short_name: Missing Bulkdata file
+        description: Dates for which bulkdata files should be available, but are not.
       MissingAgency:
         name: Missing Agency (but Agency Name is present)
         short_name: Missing Agency
