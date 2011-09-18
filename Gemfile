@@ -9,8 +9,8 @@ gem 'mongoid', '2.2.0'
 gem 'bson_ext', '1.3.1' 
 gem 'fr2_audit_logic',
   :git => 'git://github.com/criticaljuncture/fr2_audit_logic.git',
-  :ref => '7b45f2b8a90af0a8a7e3e80bb6e5b9e5607cd00a'
-# gem 'fr2_audit_logic', :path => '../fr2_audit_logic'
+  :ref => 'dda602440418fd52b4138470d73e109ed91cfa72'
+#gem 'fr2_audit_logic', :path => '../fr2_audit_logic'
 gem 'json'
 gem 'googlecharts', '1.6.7'
 gem 'fastercsv'

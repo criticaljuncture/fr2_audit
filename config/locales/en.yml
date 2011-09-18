@@ -36,6 +36,10 @@ en:
         name: Missing Title
         short_name: Missing Title
         description: Documents that have a blank or missing title.
+      MissingTopic:
+        name: Missing Topics
+        short_name: Missing Topics
+        description: Issues with fewer than 10 articles that have topics
       MissingPageRange:
         name: Missing Page Ranges
         short_name: Missing Page Ranges
