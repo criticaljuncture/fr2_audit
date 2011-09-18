@@ -15,6 +15,9 @@ gem 'json'
 gem 'googlecharts', '1.6.7'
 gem 'fastercsv'
 
+gem "capistrano", '2.5.19', :require => false
+gem "thunder_punch", '0.0.11', :require => false
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
