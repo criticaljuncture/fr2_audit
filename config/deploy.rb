@@ -56,8 +56,12 @@ task :production do
   set :rails_env,  "production"
   set :branch, 'production'
   
+  role :proxy, "ec2-184-72-241-172.compute-1.amazonaws.com"
   role :app, "ec2-204-236-209-41.compute-1.amazonaws.com", "ec2-184-72-139-81.compute-1.amazonaws.com", "ec2-174-129-132-251.compute-1.amazonaws.com", "ec2-72-44-36-213.compute-1.amazonaws.com", "ec2-204-236-254-83.compute-1.amazonaws.com"
+  role :db, "ec2-184-72-160-191.compute-1.amazonaws.com", {:primary => true}
+  role :sphinx, "ec2-184-72-160-191.compute-1.amazonaws.com"
   role :static, "ec2-75-101-243-195.compute-1.amazonaws.com" #monster image
+  role :worker, "ec2-75-101-243-195.compute-1.amazonaws.com", {:primary => true} #monster image
 end
 
 
@@ -131,12 +135,13 @@ namespace :fr2_audit do
   desc "Update secret keys"
   task :update_secret_keys, :roles => [:app, :worker] do
     run "/usr/local/s3sync/s3cmd.rb get config.internal.federalregister.gov:fr2_audit_secrets.yml #{shared_path}/config/secrets.yml"
-    find_and_execute_task("apache:restart")
+    find_and_execute_task("passenger:restart")
   end
   
   desc "Symlink mongoid.yml"
   task :symlink_mongoid_yml, :roles => [:app, :worker] do
     run "ln -s /var/www/apps/fr2/shared/config/mongoid.yml #{current_path}/config/mongoid.yml"
+    find_and_execute_task("passenger:restart")
   end
 end
 
